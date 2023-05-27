@@ -1,0 +1,27 @@
+{
+  "name": "app-avengers-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhaveshkumar96/app-avengers-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhaveshkumar96/app-avengers-backend/issues"
+  },
+  "homepage": "https://github.com/bhaveshkumar96/app-avengers-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.1",
+    "nodemon": "^2.0.22"
+  }
+}
