@@ -1,9 +1,13 @@
 const express = require("express")
 const { connection } = require("./configs/config")
 const { userRouter } = require("./routes/user.route")
+const { blogRouter } = require("./routes/blog.route")
+require("dotenv").config()
 const app = express()
-app.use("/users",userRouter)
 app.use(express.json())
+app.use("/users",userRouter)
+app.use("/blogs",blogRouter)
+
 app.get("/",(req,res)=>{
 res.send("this is home page")
 })

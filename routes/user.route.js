@@ -10,12 +10,12 @@ userRouter.get("/", async (req, res) => {
 });
 
 userRouter.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
+let { name, email, password } = req.body;
   try {
+    
     bcrypt.hash(password, 5, async (err, hash) => {
       if (err) {
         res.send(err);
-        
       } else {
         let user = new UserModel({ name, email, password: hash });
         await user.save();
@@ -23,8 +23,8 @@ userRouter.post("/register", async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
-    res.status(400).send(error);
+    //console.log(error);
+    res.status(404).send(error);
   }
 });
 
@@ -36,7 +36,7 @@ userRouter.post("/login", async (req, res) => {
       bcrypt.compare(password, existingUser[0].password, (err, result) => {
         if (result) {
           let token = jwt.sign({ userID: existingUser[0]._id }, "avengers");
-          res.send({ token: token });
+          res.send({ "token":token });
         } else {
           res.send("wrong credential");
         }
