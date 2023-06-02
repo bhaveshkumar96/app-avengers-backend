@@ -17,7 +17,7 @@ blogRouter.post("/createblog", async (req, res) => {
   }
 });
 blogRouter.patch("/updateblog/:id",async(req,res)=>{
-  let {id} = req.params.id
+  let {id} = req.params
   try {
     await BlogModel.findByIdAndUpdate({_id:id},req.body)
     res.send("post updated")
@@ -26,7 +26,7 @@ blogRouter.patch("/updateblog/:id",async(req,res)=>{
   }
 })
 blogRouter.delete("/deleteblog/:id",async(req,res)=>{
-  let {id} = req.params.id
+  let {id} = req.params
   try {
     await BlogModel.findByIdAndDelete({_id:id})
     res.send("post deleted")
